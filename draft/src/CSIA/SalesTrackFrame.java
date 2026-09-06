@@ -59,9 +59,9 @@ public class SalesTrackFrame extends JFrame {
     }
 
     private void loadDates() {
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; // database URL
-        String user = "root"; // username
-        String password = "Mswchadnb05714@"; // password
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
@@ -91,9 +91,9 @@ public class SalesTrackFrame extends JFrame {
             return;
         }
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         DefaultTableModel model = new DefaultTableModel(new String[]{"Inventory ID", "Item Name", "Unit Price (RM)", "Amount", "Total Price (RM)"}, 0);
 

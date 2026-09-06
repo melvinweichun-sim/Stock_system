@@ -101,9 +101,9 @@ public class AddRecordFrame extends JFrame {
     }
     
     private void loadInventoryIDs() {
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         Connection conn = null;
         Statement stmt = null;
@@ -142,9 +142,9 @@ public class AddRecordFrame extends JFrame {
             return;
         }
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root";
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -199,9 +199,9 @@ public class AddRecordFrame extends JFrame {
             return;
         }
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         Connection conn = null;
         PreparedStatement pstmtGetPrice = null;

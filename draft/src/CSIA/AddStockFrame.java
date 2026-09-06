@@ -112,9 +112,9 @@ public class AddStockFrame extends JFrame {
     
 
     private void fetchAndDisplayItemDetails(String itemName) {
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement("SELECT InventoryID, ItemName, UnitPrice FROM item WHERE LOWER(ItemName) = LOWER(?)")) {
@@ -156,10 +156,10 @@ public class AddStockFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "Invalid amount format", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         Connection conn = null;
         PreparedStatement pstmtGetPrice = null;

@@ -169,9 +169,9 @@ public class AddItemFrame extends JFrame {
     }
     
     private void addItemToDatabase() {
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         String inventoryID = txtInventoryID.getText().trim();
         
      // Establishes a connection to the database to ensure the uniqueness of the InventoryID before insertion.

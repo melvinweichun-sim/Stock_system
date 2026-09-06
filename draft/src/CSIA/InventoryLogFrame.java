@@ -79,9 +79,9 @@ public class InventoryLogFrame extends JFrame {
     	DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[] {"Inventory ID", "Item Name", "Unit Price (RM)", "Amount", "Sales DateTime", "Decrease Type"});
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();

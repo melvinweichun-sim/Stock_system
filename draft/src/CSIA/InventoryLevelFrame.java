@@ -74,9 +74,9 @@ public class InventoryLevelFrame extends JFrame {
     
     private DefaultCategoryDataset createDataset() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root"; 
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();

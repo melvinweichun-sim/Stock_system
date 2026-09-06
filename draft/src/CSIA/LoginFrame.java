@@ -114,9 +114,9 @@ public class LoginFrame extends JFrame {
 
         try {
             // Database connection
-            String url = "jdbc:mysql://localhost:3306/csiadraft";
-            String user = "root";
-            String pass = "Mswchadnb05714@";
+            String url = DBConfig.getUrl();
+            String user = DBConfig.getUser();
+            String password = DBConfig.getPassword();
 
             conn = DriverManager.getConnection(url, user, pass);
 
@@ -159,7 +159,7 @@ public class LoginFrame extends JFrame {
         String sql = "SELECT SecurityQuestion FROM user_security WHERE Username=?";
         try (
             // Establish a connection to the database
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/csiadraft", "root", "Mswchadnb05714@");
+            Connection conn = DriverManager.getConnection(DBConfig.getUrl(), DBConfig.getUser(), DBConfig.getPassword());
             // Prepare the SQL statement with the provided username
             PreparedStatement pst = conn.prepareStatement(sql)
         ) {
@@ -182,7 +182,7 @@ public class LoginFrame extends JFrame {
 
         try (
             // Establish a connection to the database
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/csiadraft", "root", "Mswchadnb05714@");
+            Connection conn = DriverManager.getConnection(DBConfig.getUrl(), DBConfig.getUser(), DBConfig.getPassword());
             // Prepare the SQL statement
             PreparedStatement pst = conn.prepareStatement(sql)
         ) {
@@ -205,7 +205,7 @@ public class LoginFrame extends JFrame {
         String sql = "UPDATE user SET Password=? WHERE Username=?";
         try (
             // Establish a connection to the database
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/csiadraft", "root", "Mswchadnb05714@");
+            Connection conn = DriverManager.getConnection(DBConfig.getUrl(), DBConfig.getUser(), DBConfig.getPassword());
             // Prepare the SQL statement
             PreparedStatement pst = conn.prepareStatement(sql)
         ) {
@@ -241,9 +241,9 @@ public class LoginFrame extends JFrame {
     public class Connector {
         public static void main(String[] args) {
             // Database connection details
-            String url = "jdbc:mysql://localhost:3306/csiadraft";
-            String user = "root";
-            String password = "Mswchadnb05714@";
+            String url = DBConfig.getUrl();
+            String user = DBConfig.getUser();
+            String password = DBConfig.getPassword();
             
             // Create an instance of DatabaseInitializer with the connection details
             DatabaseInitializer dbInitializer = new DatabaseInitializer(url, user, password);

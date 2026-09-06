@@ -68,9 +68,9 @@ public class EmployeeInformationFrame extends JFrame {
         DefaultTableModel model = new DefaultTableModel(new String[]{"Employee ID", "Name", "Salary (RM)", "Phone Number (+60)"}, 0);
         table.setModel(model);
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
@@ -113,9 +113,9 @@ public class EmployeeInformationFrame extends JFrame {
             "Phone Number (+60):", phoneField
         };
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         int option = JOptionPane.showConfirmDialog(this, message, "Add New Employee", JOptionPane.OK_CANCEL_OPTION);
         if (option == JOptionPane.OK_OPTION) {
@@ -143,10 +143,10 @@ public class EmployeeInformationFrame extends JFrame {
 
     private void deleteEmployee() {
         int selectedRow = table.getSelectedRow();
-       
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         if (selectedRow >= 0) {
             int employeeId = (Integer) table.getValueAt(selectedRow, 0);
@@ -174,10 +174,10 @@ public class EmployeeInformationFrame extends JFrame {
 
     private void editEmployee() {
         int selectedRow = table.getSelectedRow();
-        
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         if (selectedRow >= 0) {
             int employeeId = (Integer) table.getValueAt(selectedRow, 0);

@@ -143,9 +143,9 @@ public class EditItemFrame extends JFrame {
  // Method to fetch and display the details of an item based on its name.
     private void fetchAndDisplayItemDetails(String itemName) {
         // Database credentials and URL
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement("SELECT InventoryID, ItemName, Description, UnitPrice, QuantityInStock, ReorderLevel, ReorderTimeInDays FROM item WHERE LOWER(ItemName) = LOWER(?)")) {
@@ -197,10 +197,10 @@ public class EditItemFrame extends JFrame {
         String unitPriceStr = txtUnitPrice.getText();
         String reorderLevelStr = txtReorderLevel.getText();
         String reorderTimeInDaysStr = txtReorderTimeInDays.getText();
-        
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = conn.prepareStatement("UPDATE item SET InventoryID = ?, ItemName = ?, Description = ?, UnitPrice = ?, ReorderLevel = ?, ReorderTimeInDays = ? WHERE ItemName = LOWER(?)")) {
@@ -240,9 +240,9 @@ public class EditItemFrame extends JFrame {
  // Method to retrieve the quantity in stock for a specific inventory ID from the database.
     private int getQuantityInStock(String inventoryID) {
         // Database credentials and URL
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         int quantityInStock = 0;
 
         try (Connection conn = DriverManager.getConnection(url, user, password);

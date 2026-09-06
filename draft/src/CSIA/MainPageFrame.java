@@ -174,11 +174,11 @@ public class MainPageFrame extends JFrame {
         DefaultTableModel model = new DefaultTableModel();
         model.setColumnIdentifiers(new String[] {"Inventory ID", "Item Name", 
         		"Description", "Unit Price (RM)", "Quantity in Stock", 
-        		"Inventory Value (RM)", "Reorder Level", "Reorder Time in Days"}); 
+        		"Inventory Value (RM)", "Reorder Level", "Reorder Time in Days"});
 
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
         
         try (Connection conn = DriverManager.getConnection(url, user, password);
              Statement stmt = conn.createStatement();
@@ -281,9 +281,9 @@ public class MainPageFrame extends JFrame {
     private List<Item> fetchAllInventory() {
         // Retrieve all inventory items from the database and return them as a list
     	List<Item> inventoryList = new ArrayList<>();
-            String url = "jdbc:mysql://localhost:3306/csiadraft";
-            String user = "root";
-            String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
@@ -388,9 +388,9 @@ public class MainPageFrame extends JFrame {
     public class Connector {
         public static void main(String[] args) {
             // Initialize the database and create tables
-            String url = "jdbc:mysql://localhost:3306/csiadraft";
-            String user = "root";
-            String password = "Mswchadnb05714@";
+            String url = DBConfig.getUrl();
+            String user = DBConfig.getUser();
+            String password = DBConfig.getPassword();
             
             DatabaseInitializer dbInitializer = new DatabaseInitializer(url, user, password);
             dbInitializer.createTables();

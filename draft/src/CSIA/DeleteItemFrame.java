@@ -144,9 +144,9 @@ public class DeleteItemFrame extends JFrame {
     // Method to execute the deletion of the specified item from the database.
     private void deleteSelectedItem(String itemName) {
         // Connection to database and execution of SQL statement to delete the item.
-        String url = "jdbc:mysql://localhost:3306/csiadraft"; 
-        String user = "root"; 
-        String password = "Mswchadnb05714@"; 
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
         	     PreparedStatement pstmt = conn.prepareStatement("DELETE FROM item WHERE LOWER(ItemName) = LOWER(?)")) {
@@ -173,9 +173,9 @@ public class DeleteItemFrame extends JFrame {
     // Method to fetch and display the details of the item to be deleted.
     private void fetchAndDisplayItemDetails(String itemName) {
         // Establish connection to the database using provided credentials
-        String url = "jdbc:mysql://localhost:3306/csiadraft";
-        String user = "root";
-        String password = "Mswchadnb05714@";
+        String url = DBConfig.getUrl();
+        String user = DBConfig.getUser();
+        String password = DBConfig.getPassword();
 
         try (Connection conn = DriverManager.getConnection(url, user, password);
              // Prepare SQL statement to select item details where item name matches the input, case-insensitively
